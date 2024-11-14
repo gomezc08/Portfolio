@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-scroll-container">
+        <!-- First Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="left-panel">
+                    <div class="nav-icon">
+                        <a href="{{ url_for('home') }}"><i class="fas fa-home"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('bio') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('soccer') }}"><i class="fas fa-futbol"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('projects') }}"><i class="fas fa-code"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="text-content">
+                        <h1 class="reveal-text">Whitman College Men's Soccer NCAA Captain</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="text-content">
+                        <div class="dropdown">
+                            <h2>Achievements</h2>
+                            <div class="dropdown-content">
+                                <ul>
+                                    <li>Whitman Athletics Bob Thomsen Award (2024)</li>
+                                    <li>Northwest All-Conference Men's Soccer Team (2023-2024)</li>
+                                    <li>Adidas International Soccer Player (2017-2018)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Third Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="slideshow-section">
+                        <div class="slideshow-container">
+                            <div class="slides fade">
+                                <img src="{{ url_for('static', filename='images/soccer/slide1.jpg') }}" alt="Soccer Image 1">
+                            </div>
+                            <div class="slides fade">
+                                <img src="{{ url_for('static', filename='images/soccer/slide2.jpg') }}" alt="Soccer Image 2">
+                            </div>
+                            <div class="slides fade">
+                                <img src="{{ url_for('static', filename='images/soccer/slide3.jpg') }}" alt="Soccer Image 3">
+                            </div>
+                            <a class="prev" onclick="changeSlide(-1)">❮</a>
+                            <a class="next" onclick="changeSlide(1)">❯</a>
+                        </div>
+                        <div class="dots-container">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scroll indicators -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
+</body>
+</html>

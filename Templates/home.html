@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-scroll-container">
+        <!-- First Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="left-panel">
+                    <div class="nav-icon">
+                        <a href="{{ url_for('home') }}"><i class="fas fa-home"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('bio') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('soccer') }}"><i class="fas fa-futbol"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('projects') }}"><i class="fas fa-code"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="text-content">
+                        <h1 class="reveal-text">About Me</h1>
+                        <p>I am a Software Engineer with ambitions in Backend and Full Stack Engineering, currently a Computer Science student at George Washington University, and a recent graduate of Whitman College.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="text-content">
+                        <div class="dropdown">
+                            <h2>Languages</h2>
+                            <div class="dropdown-content">
+                                <ul>
+                                    <li>Java</li>
+                                    <li>Python</li>
+                                    <li>SQL</li>
+                                    <li>C++</li>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Third Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="text-content">
+                        <div class="dropdown">
+                            <h2>Frameworks/Technologies</h2>
+                            <div class="dropdown-content">
+                                <ul>
+                                    <li>Spring Boot</li>
+                                    <li>Flask</li>
+                                    <li>Django</li>
+                                    <li>TensorFlow</li>
+                                    <li>Bootstrap</li>
+                                    <li>Git</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cube-container">
+                        <div class="cube">
+                            <div class="face front">
+                                <img src="{{ url_for('static', filename='images/logos/java.png') }}" alt="Java">
+                            </div>
+                            <div class="face back">
+                                <img src="{{ url_for('static', filename='images/logos/html.png') }}" alt="HTML">
+                            </div>
+                            <div class="face right">
+                                <img src="{{ url_for('static', filename='images/logos/tensorflow.png') }}" alt="Tensorflow">
+                            </div>
+                            <div class="face left">
+                                <img src="{{ url_for('static', filename='images/logos/sql.png') }}" alt="SQL">
+                            </div>
+                            <div class="face top">
+                                <img src="{{ url_for('static', filename='images/logos/spring_boot.png') }}" alt="Spring Boot">
+                            </div>
+                            <div class="face bottom">
+                                <img src="{{ url_for('static', filename='images/logos/python.png') }}" alt="Python">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scroll indicators -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-scroll-container">
+        <!-- First Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="left-panel">
+                    <div class="nav-icon">
+                        <a href="{{ url_for('home') }}"><i class="fas fa-home"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('bio') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('soccer') }}"><i class="fas fa-futbol"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('projects') }}"><i class="fas fa-code"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="text-content">
+                        <h1 class="reveal-text">Biography</h1>
+                        <p>I am ambitious about Backend Engineering because I enjoy problem solving and critical thinking. Having recently graduated as a successful student-athlete, I am used to working hard I am passionate about using technology to solve real-world problems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Section - Education -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="text-content">
+                        <h2>Education</h2>
+                        <div class="education-content">
+                            <h3>Whitman College</h3>
+                            <div class="date">2020 - 2024</div>
+                            <p>Bachelor of Arts in Computer Science</p>
+                            <ul>
+                                <li>GPA: 3.8/4.0</li>
+                                <li>NCAA Soccer Team Captain</li>
+                            </ul>
+                        </div>
+                        <div class="education-content">
+                            <h3>George Washington University</h3>
+                            <div class="date">2024 - Present</div>
+                            <p>Master of Science in Computer Science</p>
+                            <ul>
+                                <li>Relevant Coursework: Advanced Algorithms, Database Systems</li>
+                                <li>Expected Graduation: 2026</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Third Section - Experience -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="text-content">
+                        <h2>Professional Experience</h2>
+                        <div class="experience-content">
+                            <h3>Software Engineering Intern</h3>
+                            <div class="date">Summer 2023</div>
+                            <div class="company">Company Name</div>
+                            <ul>
+                                <li>Developed feature X using technology Y</li>
+                                <li>Collaborated with team on project Z</li>
+                            </ul>
+                        </div>
+                        <div class="experience-content">
+                            <h3>Research Assistant</h3>
+                            <div class="date">2022 - 2023</div>
+                            <div class="company">Whitman College</div>
+                            <ul>
+                                <li>Conducted research on topic A</li>
+                                <li>Published paper on finding B</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scroll indicators -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
+</body>
+</html>

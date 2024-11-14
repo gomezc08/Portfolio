@@ -1,0 +1,636 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow: hidden; /* Prevent default scrolling */
+}
+
+
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Main scroll container */
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding: 0 80px 0 160px; /* Add padding to account for left panel */
+}
+
+.scroll-indicator {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.scroll-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 229, 92, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scroll-dot.active {
+    background-color: #FFE55C;
+    transform: scale(1.3);
+}
+
+/* Add smooth transition for content */
+.scroll-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Left panel styling */
+.left-panel {
+    width: 80px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center icons vertically */
+    background-color: #021526;
+    position: fixed;
+    height: 100vh;
+    z-index: 1000; /* Ensure it's always on top */
+    left: 0;
+    top: 0;
+}
+
+.nav-icon {
+    margin: 30px 0; /* Increase spacing between icons */
+    text-align: center;
+}
+
+.nav-icon a {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.8em; /* Make icons larger */
+}
+
+.nav-icon a:hover {
+    color: #FFE55C;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0f1e4d 0%, #3b82f6 100%);
+}
+
+
+.text-content {
+    max-width: 800px; /* Increased from 500px */
+    width: 100%;
+    text-align: center; /* Center text */
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 3.5em; /* Larger headings */
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin: 30px 0;
+    text-align: center;
+}
+
+h1, h2 {
+    transition: all 0.3s ease;
+    display: inline-block;  /* Needed for transform to work properly */
+}
+
+h1:hover {
+    transform: scale(1.05);  /* Slight expansion */
+    color: #fff;  /* Changes to white on hover */
+    text-shadow: 0 0 15px #FFE55C;  /* Adds a yellow glow effect */
+    cursor: default;  /* Optional: changes cursor to show text is interactive */
+}
+
+h2:hover {
+    transform: scale(1.03);  /* Slightly smaller expansion than h1 */
+    color: #fff;
+    text-shadow: 0 0 10px #FFE55C;
+    cursor: default;
+}
+
+h1, h2 {
+    transform-origin: left;  /* Makes the expansion start from the left */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.3s ease,
+                text-shadow 0.3s ease;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 1.3em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Profile picture styling */
+.profile-section {
+    margin-left: 40px;
+    width: 300px;
+}
+
+.profile-pic img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FFE55C;  
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation-delay: 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  
+}
+
+/* Dropdown styling */
+.dropdown {
+    margin: 40px auto;
+    max-width: 600px;
+    width: 100%;
+    background: rgba(46, 7, 63, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.dropdown h2 {
+    color: #FFE55C;
+    margin-bottom: 15px;
+}
+
+.dropdown-content {
+    display: block;  /* Changed from 'none' to always show content */
+}
+
+.dropdown-content ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.dropdown-content li {
+    font-size: 1.2em;
+    padding: 15px;
+    background: rgba(46, 7, 63, 0.5);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Achievements list styling */
+.achievements-list {
+    list-style: none;
+    padding: 0;
+}
+
+.achievements-list li {
+    color: white;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(46, 7, 63, 0.5);
+    border-radius: 5px;
+    border-left: 3px solid #FFE55C;
+}
+
+/* Slideshow styling */
+.slideshow-container {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.slideshow-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.slides {
+    display: none;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%; /* Force image to fill container */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+    border-radius: 8px;
+}
+
+/* Button styling */
+.highlight-button {
+    background-color: transparent;
+    color: #FFE55C;  /* Same yellow as your headers */
+    border: 2px solid #FFE55C;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    font-weight: 500;
+    animation: fadeIn 0.8s ease-out;
+    animation-delay: 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.highlight-button:hover {
+    background-color: #FFE55C;
+    color: #2E073F;  /* Dark purple from your theme */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 229, 92, 0.2);
+}
+
+.highlight-button:active {
+    transform: translateY(0);
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.next {
+    right: 20px;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 20px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(255,229,92,0.8);
+    color: black;
+}
+
+/* Dots/bullets/indicators */
+.dots-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #FFE55C;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Add animation classes */
+.animate-fade {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.animate-bounce {
+    animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Add staggered animation to nav icons */
+.nav-icon:nth-child(1) { animation-delay: 0.1s; }
+.nav-icon:nth-child(2) { animation-delay: 0.2s; }
+.nav-icon:nth-child(3) { animation-delay: 0.3s; }
+.nav-icon:nth-child(4) { animation-delay: 0.4s; }
+.nav-icon:nth-child(5) { animation-delay: 0.5s; }
+
+.nav-icon {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* 3D Cube Styles */
+.cube-container {
+    width: 400px; /* Larger cube */
+    height: 400px;
+    margin: 40px auto;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 20s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(46, 7, 63, 0.9);
+    border: 2px solid #FFE55C;
+}
+
+.face img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+/* Position each face */
+.front  { transform: translateZ(150px); }
+.back   { transform: rotateY(180deg) translateZ(150px); }
+.right  { transform: rotateY(90deg) translateZ(150px); }
+.left   { transform: rotateY(-90deg) translateZ(150px); }
+.top    { transform: rotateX(90deg) translateZ(150px); }
+.bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+@keyframes rotate {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* Optional hover effect to pause rotation */
+.cube-container:hover .cube {
+    animation-play-state: paused;
+}
+
+/* Text reveal animation */
+.reveal-text {
+    position: relative;
+    color: transparent;
+    animation: none;  /* Remove any existing animation */
+}
+
+.reveal-text::before {
+    content: 'About Me';  /* Must match your h1 text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #FFE55C;  /* Your yellow color */
+    animation: typing 2s steps(8);  /* Adjust steps to match character count */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+@keyframes typing {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Optional blinking cursor effect */
+.reveal-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -15px;
+    width: 2px;
+    height: 100%;
+    background-color: #FFE55C;
+    animation: blink 0.8s steps(1) 2.5;  /* Will blink 2.5 times (2 seconds) */
+    opacity: 0;  /* Hide cursor after animation ends */
+    animation-fill-mode: forwards;  /* Maintain final state */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Education and Experience Content Styling */
+.education-content, .experience-content {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 40px;
+}
+
+.education-content h3, .experience-content h3 {
+    color: #FFE55C;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+.date {
+    color: #E6B0FF;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.company {
+    color: #FFE55C;
+    margin-bottom: 15px;
+}
+
+.education-content ul, .experience-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.education-content li, .experience-content li {
+    color: white;
+    margin: 8px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.education-content li:before, .experience-content li:before {
+    content: "•";
+    color: #FFE55C;
+    position: absolute;
+    left: 0;
+}
+
+/* Adjust slideshow container for these sections */
+.education-slides, .experience-slides {
+    width: 100%;
+    max-width: 800px;
+    min-height: 300px;
+    margin: 20px 0;
+}
+
+/* Ensure slides maintain consistent height */
+.slides {
+    min-height: 250px;
+}
+
+/* Project card styling */
+.project-card {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 40px;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    color: #FFE55C;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.project-tech {
+    margin: 15px 0;
+}
+
+.project-tech span {
+    background: rgba(255, 229, 92, 0.2);
+    color: #FFE55C;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Technology grid styling */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tech-category {
+    background: rgba(46, 7, 63, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 3px solid #FFE55C;
+}
+
+.tech-category h3 {
+    color: #FFE55C;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.tech-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-category li {
+    color: white;
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.tech-category li:before {
+    content: "•";
+    color: #FFE55C;
+    position: absolute;
+    left: 0;
+}
+
+/* Project links spacing */
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.project-links .highlight-button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+}

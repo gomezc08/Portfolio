@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="page-scroll-container">
+        <!-- First Section -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="left-panel">
+                    <div class="nav-icon">
+                        <a href="{{ url_for('home') }}"><i class="fas fa-home"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('bio') }}"><i class="fas fa-user"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('soccer') }}"><i class="fas fa-futbol"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="{{ url_for('projects') }}"><i class="fas fa-code"></i></a>
+                    </div>
+                    <div class="nav-icon">
+                        <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="text-content">
+                        <h1 class="reveal-text">Projects</h1>
+                        <p>Here are some of my recent projects showcasing my skills in software development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Section - Featured Projects -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="text-content">
+                        <h2>Featured Projects</h2>
+                        <div class="project-card">
+                            <h3>Project Name 1</h3>
+                            <p>Project description here. This is a detailed explanation of what the project does, the technologies used, and the problems it solves.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>React</span>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="highlight-button">GitHub</a>
+                                <a href="#" class="highlight-button">Live Demo</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <h3>Project Name 2</h3>
+                            <p>Another amazing project description. Highlighting the key features and technical achievements of this particular project.</p>
+                            <div class="project-tech">
+                                <span>Java</span>
+                                <span>Spring Boot</span>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="highlight-button">GitHub</a>
+                                <a href="#" class="highlight-button">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Third Section - Technologies -->
+        <section class="scroll-section">
+            <div class="container">
+                <div class="main-content">
+                    <div class="text-content">
+                        <h2>Technologies Used</h2>
+                        <div class="tech-grid">
+                            <div class="tech-category">
+                                <h3>Frontend</h3>
+                                <ul>
+                                    <li>React.js</li>
+                                    <li>HTML5/CSS3</li>
+                                    <li>JavaScript</li>
+                                    <li>Tailwind CSS</li>
+                                </ul>
+                            </div>
+                            <div class="tech-category">
+                                <h3>Backend</h3>
+                                <ul>
+                                    <li>Python/Django</li>
+                                    <li>Java/Spring Boot</li>
+                                    <li>Node.js</li>
+                                    <li>RESTful APIs</li>
+                                </ul>
+                            </div>
+                            <div class="tech-category">
+                                <h3>Database & Tools</h3>
+                                <ul>
+                                    <li>PostgreSQL</li>
+                                    <li>MongoDB</li>
+                                    <li>Git</li>
+                                    <li>Docker</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scroll indicators -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot active"></div>
+        <div class="scroll-dot"></div>
+        <div class="scroll-dot"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
+</body>
+</html>
